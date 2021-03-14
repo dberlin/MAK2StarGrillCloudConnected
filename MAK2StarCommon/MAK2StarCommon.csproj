@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{D27044C8-8116-4B42-87AD-576FBBD45043}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>MAK2StarCommon</RootNamespace>
+        <AssemblyName>MAK2StarCommon</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>none</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="RADCommon, Version=4.1.0.16, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\Downloads\CrestronCertifiedDriversSDK_4.1.000.0016\SDK\Libraries\RADCommon.dll</HintPath>
+        </Reference>
+        <Reference Include="SimplSharpHelperInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1099c178b3b54c3b">
+          <HintPath>..\..\..\..\.nuget\packages\crestron.simplsharp.sdk.library\2.14.147\lib\net47\SimplSharpHelperInterface.dll</HintPath>
+        </Reference>
+        <Reference Include="SimplSharpNewtonsoft, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1099c178b3b54c3b">
+          <HintPath>..\..\..\..\.nuget\packages\crestron.simplsharp.sdk.library\2.14.147\lib\net47\SimplSharpNewtonsoft.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\DefaultFlurlClientFactory.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\DefaultHttpClientFactory.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\DefaultUrlEncodedSerializer.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\FlurlClientFactoryBase.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\FlurlHttpSettings.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\IFlurlClientFactory.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\IHttpClientFactory.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\ISerializer.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\NewtonsoftJsonSerializer.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\PerBaseUrlFlurlClientFactory.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Configuration\RedirectSettings.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Content\CapturedJsonContent.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Content\CapturedMultipartContent.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Content\CapturedStringContent.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Content\CapturedUrlEncodedContent.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Content\FileContent.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\CookieCutter.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\CookieExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\CookieJar.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\CookieSession.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\DownloadExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FileUtil.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlCall.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlClient.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlCookie.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlHttp.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlHttpException.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlRequest.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\FlurlResponse.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\GeneratedExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\HeaderExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\HttpMessageExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\HttpStatusRangeParser.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\IHttpSettingsContainer.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\MultipartExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\ResponseExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\SettingsExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\FakeHttpMessageHandler.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\FilteredHttpTestSetup.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\HttpCallAssertion.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\HttpTest.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\HttpTestException.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\HttpTestSetup.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\TestHttpClientFactory.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\TimeoutResponseMessage.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\Testing\Util.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl.Http\UrlBuilderExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl\GeneratedExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl\NullValueHandling.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl\QueryParamCollection.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl\Url.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl\Util\CommonExtensions.cs" />
+        <Compile Include="FlUrl\Flurl\src\Flurl\Util\NameValueList.cs" />
+        <Compile Include="GrillConstants.cs" />
+        <Compile Include="GrillInfoJson.cs" />
+        <Compile Include="GrillListJson.cs" />
+        <Compile Include="IMAKDevice.cs" />
+        <Compile Include="IMAKPlatformProtocol.cs" />
+        <Compile Include="MAKLogging.cs" />
+        <Compile Include="MAKUtilities.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Crestron.SimplSharp.SDK.Library">
+        <Version>2.14.147</Version>
+      </PackageReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    -->
+   <!-- <Target Name="AfterBuild">
+        <Copy SourceFiles="$(OutDir)\MAK2StarCommon.dll" DestinationFolder="..\MAK2StarGrillCloudConnected\$(OutDir)\IncludeInPkg" />
+    </Target> -->
+</Project>

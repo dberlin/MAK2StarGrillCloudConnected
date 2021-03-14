@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="..\ExtraTasks.targets" />
+    <PropertyGroup>
+        <!--  <Nullable>enable</Nullable>
+        <LangVersion>8.0</LangVersion> -->
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{B18248B4-8521-4371-A1B0-151A890A019A}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>MAK2StarGrillCloudConnected</RootNamespace>
+        <AssemblyName>MAK2StarGrillCloudConnected</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <Deterministic>true</Deterministic>
+        <NuGetPackageImportStamp>
+        </NuGetPackageImportStamp>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>none</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>TRACE;DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="RADCommon">
+            <HintPath>..\..\..\..\Downloads\CrestronCertifiedDriversSDK_4.1.000.0016\SDK\Libraries\RADCommon.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Runtime" />
+        <Reference Include="System.Runtime.InteropServices" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.Threading.Thread" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="GlobalSuppressions.cs" />
+        <Compile Include="MAK2StarGrillCloudConnectedDevice.cs" />
+        <Compile Include="MAK2StarGrillTransport.cs" />
+        <Compile Include="MAKPlatformProtocol.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="IncludeInPkg\Translations\en-US.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <EmbeddedResource Include="MAK2StarGrillCloudConnected.json" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="IncludeInPkg\UiDefinitions\UiDefinition.xml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="stylecop.json" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\.editorconfig">
+            <Link>.editorconfig</Link>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MAK2StarCommon\MAK2StarCommon.csproj">
+            <Project>{d27044c8-8116-4b42-87ad-576fbbd45043}</Project>
+            <Name>MAK2StarCommon</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\MAK2StarGrillSingleDevice\MAK2StarGrillSingleDevice.csproj">
+            <Project>{4fce59de-f555-4565-a438-c9262b235935}</Project>
+            <Name>MAK2StarGrillSingleDevice</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <PropertyGroup>
+        <PostBuildEvent>"c:\users\Daniel Berlin\Downloads\CrestronCertifiedDriversSDK_4.1.000.0016\SDK\ManifestUtil\ManifestUtil.exe" "$(TargetPath)"</PostBuildEvent>
+    </PropertyGroup>
+    <Target Name="BeforeBuild">
+        <ReplaceFileText InputFilename="MAK2StarGrillCloudConnected.json" OutputFilename="MAK2StarGrillCloudConnected.json" MatchExpression="(VersionDate&quot;.*?&quot;)(.*?)(&quot;)" ReplacementText="$1 $(CurrentDate) $3" />
+    </Target>
+</Project>

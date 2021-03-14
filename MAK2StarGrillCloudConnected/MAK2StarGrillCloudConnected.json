@@ -1,0 +1,60 @@
+{
+  "CrestronSerialDeviceApi": {
+    "DeviceSupport": {
+      "SupportsUsername": true,
+      "SupportsPassword": true,
+      "SupportsDisconnect" : true,
+    },
+    "DeviceSupport2": [ "SupportsReconnect", "SupportsUsername", "SupportsPassword" ],
+    "GeneralInformation": {
+      "DeviceType": "Platform",
+      "Manufacturer": "MAK",
+      "BaseModel": "Mobile",
+      "VersionDate":" 2021-03-14 17:21:28.9639 ",
+      "DriverVersion": "4.1.000.0016",
+      "SdkVersion": "4.0.0",
+      "Description": "MAK Grill Platform",
+      "Guid": "92661764-59ED-47CC-B06C-DE477DCE84AD",
+      "ExtensionDeviceData": {
+        "IsExtensionDevice": false,
+        "IsMediaDevice": false,
+        "IsMediaSource": false
+      },
+      "SupportedSeries": [ "Mobile" ],
+      "SupportedModels": [ "Mobile" ]
+    },
+    "Api": {
+      "Communication": {
+        "CommunicationType": 5,
+        "Protocol": -1,
+        "Baud": -1,
+        "Parity": -1,
+        "HwHandshake": -1,
+        "SwHandshake": -1,
+        "DataBits": 0,
+        "StopBits": -1,
+        "Port": 4444,
+        "EnableAutoPolling": true,
+        "EnableAutoReconnect": true,
+        "TimeBetweenCommands": 250,
+        "ResponseTimeout": 3000,
+        "WaitForResponse": false,
+        "IpProtocol": 0,
+        "IsUserAdjustable": false,
+        "Authentication": {
+          "UsernameRequired": true,
+          "PasswordRequired": true,
+          "Type": "UsernamePassword",
+          "Required": true,
+          "DefaultUsername": "",
+          "DefaultPassword": ""
+        },
+        "IsSecure": false,
+        "UserAdjustableProperties": [],
+        "DeviceId": 0
+      }
+    },
+    "UserAttributes": [],
+    "Dependencies": ["MAK2StarCommon.dll", "MAK2StarGrillSingleDevice.dll"]
+  }
+}

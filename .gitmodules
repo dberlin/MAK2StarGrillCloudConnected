@@ -1,0 +1,3 @@
+[submodule "MAK2StarCommon/FlUrl/Flurl"]
+	path = MAK2StarCommon/FlUrl/Flurl
+	url = https://github.com/tmenier/Flurl.git

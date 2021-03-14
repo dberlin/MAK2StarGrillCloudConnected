@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uidefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://prd-use-rad-assets.azurewebsites.net/ExtensionsSchemaDefinition_v1_0.xsd">
+    <version ver="1.0"/>
+    <tile icon="{GrillStateIcon}" status="{GrillTileStatusText}" navigation="show:MainPage" showinhomepage="#false"
+          showinroompage="#true"/>
+    <layouts>
+        <layout id="MainPage" isdefaultlayout="#true">
+            <controls>
+                <controlgroup>
+                    <radialgauge id="GrillStatus" label="{GrillRadialLabel}" radialvalue="{GrillRadialValue}"
+                                 line1label="{GrillCurrentTemp}"
+                                 line2label="{GrillStateText}" line3label="{GrillSetPoint}"/>
+                    <raiselowerwithtext id="GrillSetPointRaiseLower" label="^GrillSetPointRLLabel"
+                                        value="{GrillSetPointRLValue}" valueformat="^GrillSetPointRLValueFormat"
+                                        enabled="{GrillSetPointRLEnabled}"/>
+                    <!--
+                    <textdisplay id="GrillStatus" title="^GrillStatusLabel" line1label="^GrillStateLabel|{GrillStateText}"
+                                 line2label="^CurrentTempLabel|{CurrentTemp}" line3label="^SetPointLabel|{SetPoint}"/> -->
+                </controlgroup>
+                <textdisplay id="GrillProbeStatus" title="^GrillProbeTitle" line1label="{GrillProbe1Status}"
+                             line2label="{GrillProbe2Status}"
+                             line3label="{GrillProbe3Status}"/>
+            </controls>
+        </layout>
+    </layouts>
+    <alerts/>
+</uidefinition>

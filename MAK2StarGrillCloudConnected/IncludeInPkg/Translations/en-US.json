@@ -1,0 +1,6 @@
+{
+  "GrillStatusLabel": "Grill Status",
+  "GrillSetPointRLLabel" : "SetPoint",
+  "GrillSetPointRLValueFormat" : "%s°F",
+  "GrillProbeTitle": "Temperature Probes"
+}
