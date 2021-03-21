@@ -3,7 +3,7 @@
 
 
 
-<h3 align="center">Crestron Home Driver for [MAK](http://makgrills.com) Grills</h3>
+<h3 align="center">Crestron Home Driver for <a href="http://makgrills.com">MAK</a> Grills</h3>
   <p align="center">
     A Crestron Home driver that supports MAK 1/2/3 Star grills
   </p>
