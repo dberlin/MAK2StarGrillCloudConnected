@@ -1,7 +1,6 @@
 ﻿namespace MAK2StarGrillCloudConnected
 {
     using System.Globalization;
-    using Crestron.RAD.Common.Events;
     using Crestron.RAD.Common.Interfaces;
     using Crestron.RAD.DeviceTypes.Gateway;
     using Crestron.SimplSharp;
@@ -26,9 +25,9 @@
                 };
                 settings.JsonSerializer = new NewtonsoftJsonSerializer(jsonSettings);
             });
-            this.EnableLogging = true;
+            /*this.EnableLogging = true;
             this.EnableRxDebug = true;
-            this.EnableTxDebug = true;
+            this.EnableTxDebug = true;*/
         }
 
         public void Initialize()
@@ -39,8 +38,6 @@
                 this.ConnectionTransport,
                 this.Id);
             this.Protocol = makPlatformProtocol;
-            makPlatformProtocol.AuthenticationChanged -= this.AuthenticationChangeHandler;
-            makPlatformProtocol.AuthenticationChanged += this.AuthenticationChangeHandler;
             this.Protocol.Initialize(this.DriverData);
         }
 
@@ -70,12 +67,6 @@
             }
 
             ((MAKPlatformProtocol) this.Protocol).Stop();
-        }
-
-        private void AuthenticationChangeHandler(object sender, AuthenticationEventArgs eventArgs)
-        {
-            MAKLogging.TraceMessage(this.EnableLogging, $"Authentication changed: {eventArgs.IsAuthenticated}");
-            this.IsAuthenticated = eventArgs.IsAuthenticated;
         }
 
         public override void OverridePassword(string password)

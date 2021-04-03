@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <uidefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:noNamespaceSchemaLocation="https://prd-use-rad-assets.azurewebsites.net/ExtensionsSchemaDefinition_v1_0.xsd">
-    <version ver="1.0"/>
+              xsi:noNamespaceSchemaLocation="https://prd-use-rad-assets.azurewebsites.net/ExtensionsSchemaDefinition.xsd">
+    <version ver="2.0"/>
     <tile icon="{GrillStateIcon}" status="{GrillTileStatusText}" navigation="show:MainPage" showinhomepage="#false"
           showinroompage="#true"/>
     <layouts>
@@ -10,7 +10,7 @@
                 <controlgroup>
                     <radialgauge id="GrillStatus" label="{GrillRadialLabel}" radialvalue="{GrillRadialValue}"
                                  line1label="{GrillCurrentTemp}"
-                                 line2label="{GrillStateText}" line3label="{GrillSetPoint}"/>
+                                 line2label="{GrillStateText}" line3label="{GrillSetPoint}" gaugefillcolor="#Red"/>
                     <raiselowerwithtext id="GrillSetPointRaiseLower" label="^GrillSetPointRLLabel"
                                         value="{GrillSetPointRLValue}" valueformat="^GrillSetPointRLValueFormat"
                                         enabled="{GrillSetPointRLEnabled}"/>

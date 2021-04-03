@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using Crestron.RAD.Common.Events;
     using Crestron.RAD.Common.Transports;
     using Crestron.RAD.DeviceTypes.Gateway;
     using Flurl;
@@ -21,9 +20,7 @@
         {
             this.MAKUsername = username;
             this.MAKPassword = password;
-            this.isAuthenticatedToMAK = false;
-            this.lastPollAuthStatus = false;
-        }
+            this.isAuthenticatedToMAK = false; }
 
         public void QueueSetPointChange(IMAKDevice device, int intVal)
         {
@@ -74,20 +71,11 @@
             if (!authed)
             {
                 this.ConnectionChanged(false);
-                if (this.lastPollAuthStatus)
-                    this.AuthenticationChanged?.Invoke(this,
-                        new AuthenticationEventArgs(false, "Authorization failed"));
-                this.lastPollAuthStatus = false;
                 MAKLogging.TraceMessage(this.EnableLogging, "Authentication for polling failed");
                 return;
             }
 
             this.ConnectionChanged(true);
-            if (!this.lastPollAuthStatus)
-                this.AuthenticationChanged?.Invoke(this,
-                    new AuthenticationEventArgs(true, string.Empty));
-
-            this.lastPollAuthStatus = true;
             var grillList = this.RefreshGrillList();
             this.ProcessDeviceChanges(grillList);
 
@@ -204,7 +192,6 @@
                     }
 
                     foreach (var entry in grillListDiff.Added)
-
                     {
                         var deviceId = MAKUtilities.FormatDeviceId(entry.GrillId);
                         MAKLogging.TraceMessage(this.EnableLogging, $"Adding paired device for ID: {deviceId}");
@@ -232,12 +219,12 @@
                         if (!this.makDevices.ContainsKey(beforeDeviceId))
                         {
                             MAKLogging.TraceMessage(this.EnableLogging,
-                                $"When trying to remove: missing key {beforeDeviceId} in the device dictionary!");
+                                $"When trying to change: missing key {beforeDeviceId} in the device dictionary!");
                             continue;
                         }
 
                         var deviceInstance = this.makDevices[beforeDeviceId];
-                        var pairedDeviceInfo = new GatewayPairedDeviceInformation(deviceInstance.GrillId,
+                        var pairedDeviceInfo = new GatewayPairedDeviceInformation(beforeDeviceId,
                             entry.After.Name, deviceInstance.Description, deviceInstance.Manufacturer,
                             deviceInstance.Model, deviceInstance.DeviceType,
                             deviceInstance.DeviceSubType);
@@ -379,11 +366,6 @@
         // This lock is locked by things reading or writing the list of devices.  
         // There is not enough contention to be worth using a ReaderWriterLockSlim
         private readonly object deviceUpdateLock = new object();
-
-        // Keep track of whether we were authenticated during the last call to Poll so that we don't 
-        // unnecessarily raise authentication changed events.
-        private bool lastPollAuthStatus;
-        public event EventHandler<AuthenticationEventArgs> AuthenticationChanged;
 
         #endregion Fields
     }
