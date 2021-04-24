@@ -21,6 +21,35 @@
             </Code>
         </Task>
     </UsingTask>
+    <UsingTask TaskName="IncrementVersion" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+        <ParameterGroup>
+            <InputFilename ParameterType="System.String" Required="true"/>
+            <OutputFilename ParameterType="System.String" Required="true"/>
+            <FieldName ParameterType="System.String" Required="true"/>
+        </ParameterGroup>
+        <Task>
+            <Reference Include="System.Core"/>
+            <Reference Include="System.Memory"/>
+            <Reference Include="System.Text.Json"/>
+            <Using Namespace="System"/>
+            <Using Namespace="System.IO"/>
+            <Using Namespace="System.Text.Json"/>
+            <Code Type="Fragment" Language="cs">
+                <![CDATA[
+                var allText = File.ReadAllText(InputFilename);
+                var jsonDoc = JsonDocument.Parse(allText);
+                var root = jsonDoc.RootElement;
+                var serial = root.GetProperty("CrestronSerialDeviceApi");
+                var general = serial.GetProperty("GeneralInformation");
+                var driverVersionString = general.GetProperty(FieldName);
+                var oldText = driverVersionString.GetString();
+                var driverVersion = Version.Parse(driverVersionString.GetString());
+                var newDriverVersion = new Version(driverVersion.Major, driverVersion.Minor, driverVersion.Build, driverVersion.Revision+1);
+                File.WriteAllText(OutputFilename, allText.Replace(oldText, newDriverVersion.ToString()));
+                ]]>
+            </Code>
+        </Task>
+    </UsingTask>
     <PropertyGroup>
         <CurrentDate>$([System.DateTime]::Now.ToString(yyyy-MM-dd HH:mm:ss.ffff))</CurrentDate>
     </PropertyGroup>

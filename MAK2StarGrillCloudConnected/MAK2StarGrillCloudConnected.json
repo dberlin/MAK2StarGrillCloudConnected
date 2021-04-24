@@ -3,16 +3,20 @@
     "DeviceSupport": {
       "SupportsUsername": true,
       "SupportsPassword": true,
-      "SupportsDisconnect" : true,
+      "SupportsDisconnect": true
     },
-    "DeviceSupport2": [ "SupportsReconnect", "SupportsUsername", "SupportsPassword" ],
+    "DeviceSupport2": [
+      "SupportsReconnect",
+      "SupportsUsername",
+      "SupportsPassword"
+    ],
     "GeneralInformation": {
       "DeviceType": "Platform",
       "Manufacturer": "MAK",
       "BaseModel": "Mobile",
-      "VersionDate":" 2021-04-02 23:45:58.8305 ",
-      "DriverVersion": "4.1.000.0016",
-      "SdkVersion": "4.0.0",
+      "VersionDate": " 2021-04-24 10:49:45.7299 ",
+      "DriverVersion": "4.1.0.18",
+      "SdkVersion": "6.0.0",
       "Description": "MAK Grill Platform",
       "Guid": "92661764-59ED-47CC-B06C-DE477DCE84AD",
       "ExtensionDeviceData": {
@@ -20,8 +24,12 @@
         "IsMediaDevice": false,
         "IsMediaSource": false
       },
-      "SupportedSeries": [ "Mobile" ],
-      "SupportedModels": [ "Mobile" ]
+      "SupportedSeries": [
+        "Mobile"
+      ],
+      "SupportedModels": [
+        "Mobile"
+      ]
     },
     "Api": {
       "Communication": {
@@ -55,6 +63,9 @@
       }
     },
     "UserAttributes": [],
-    "Dependencies": ["MAK2StarCommon.dll", "MAK2StarGrillSingleDevice.dll"]
+    "Dependencies": [
+      "MAK2StarCommon.dll",
+      "MAK2StarGrillSingleDevice.dll"
+    ]
   }
 }

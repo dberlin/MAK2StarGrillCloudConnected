@@ -34,8 +34,11 @@
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="RADCommon, Version=4.1.0.16, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\Downloads\CrestronCertifiedDriversSDK_4.1.000.0016\SDK\Libraries\RADCommon.dll</HintPath>
+        <Reference Include="Crestron.DeviceDrivers.API, Version=7.0.0.12, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\Downloads\ccd7\SDK\Libraries\Crestron.DeviceDrivers.API.dll</HintPath>
+        </Reference>
+        <Reference Include="RADCommon, Version=7.0.0.12, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\Downloads\ccd7\SDK\Libraries\RADCommon.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -58,6 +61,7 @@
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="BeforeBuild">
         <ReplaceFileText InputFilename="MAK2StarGrillSingleDevice.json" OutputFilename="MAK2StarGrillSingleDevice.json" MatchExpression="(VersionDate&quot;.*?&quot;)(.*?)(&quot;)" ReplacementText="$1 $(CurrentDate) $3" />
+        <IncrementVersion InputFilename="MAK2StarGrillSingleDevice.json" OutputFilename="MAK2StarGrillSingleDevice.json" FieldName="DriverVersion" />
     </Target>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.

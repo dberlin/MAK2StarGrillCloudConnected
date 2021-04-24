@@ -7,9 +7,9 @@
       "DeviceType": "Grill",
       "Manufacturer": "MAK",
       "BaseModel": "2 Star",
-      "VersionDate": " 2021-03-14 20:57:17.3378 ",
-      "DriverVersion": "4.1.000.0016",
-      "SdkVersion": "4.0.0",
+      "VersionDate": " 2021-04-24 10:49:44.3458 ",
+      "DriverVersion": "4.1.0.19",
+      "SdkVersion": "6.0.0",
       "Description": "Grill",
       "Guid": "82661764-59ED-47CC-B06C-DE477DCE84AD",
       "ExtensionDeviceData": {
@@ -17,8 +17,12 @@
         "IsMediaDevice": false,
         "IsMediaSource": false
       },
-      "SupportedSeries": [ "2 Star" ],
-      "SupportedModels": [ "2 Star" ]
+      "SupportedSeries": [
+        "2 Star"
+      ],
+      "SupportedModels": [
+        "2 Star"
+      ]
     },
     "Api": {
       "Communication": {
@@ -52,6 +56,8 @@
       }
     },
     "UserAttributes": [],
-    "Dependencies": ["MAK2StarCommon.dll"]
+    "Dependencies": [
+      "MAK2StarCommon.dll"
+    ]
   }
 }

@@ -38,8 +38,11 @@
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="RADCommon">
-            <HintPath>..\..\..\..\Downloads\CrestronCertifiedDriversSDK_4.1.000.0016\SDK\Libraries\RADCommon.dll</HintPath>
+        <Reference Include="Crestron.DeviceDrivers.API, Version=7.0.0.12, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\Downloads\ccd7\SDK\Libraries\Crestron.DeviceDrivers.API.dll</HintPath>
+        </Reference>
+        <Reference Include="RADCommon, Version=7.0.0.12, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\Downloads\ccd7\SDK\Libraries\RADCommon.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -93,9 +96,10 @@
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <PropertyGroup>
-        <PostBuildEvent>"c:\users\Daniel Berlin\Downloads\CrestronCertifiedDriversSDK_4.1.000.0016\SDK\ManifestUtil\ManifestUtil.exe" "$(TargetPath)"</PostBuildEvent>
+        <PostBuildEvent>"c:\users\Daniel Berlin\Downloads\ccd7\SDK\ManifestUtil\ManifestUtil.exe" "$(TargetPath)"</PostBuildEvent>
     </PropertyGroup>
     <Target Name="BeforeBuild">
         <ReplaceFileText InputFilename="MAK2StarGrillCloudConnected.json" OutputFilename="MAK2StarGrillCloudConnected.json" MatchExpression="(VersionDate&quot;.*?&quot;)(.*?)(&quot;)" ReplacementText="$1 $(CurrentDate) $3" />
+        <IncrementVersion InputFilename="MAK2StarGrillCloudConnected.json" OutputFilename="MAK2StarGrillCloudConnected.json" FieldName="DriverVersion"/>
     </Target>
 </Project>

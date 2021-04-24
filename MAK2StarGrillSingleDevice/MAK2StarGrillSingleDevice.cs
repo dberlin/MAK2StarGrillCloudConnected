@@ -145,7 +145,7 @@ namespace MAK2StarGrillSingleDevice
                 return 100;
             if (grillInfo.SessionData.SetPoint == 0)
                 return 100;
-            var percentVal = grillInfo.GrillData.Temp / (double) grillInfo.SessionData.SetPoint;
+            var percentVal = (grillInfo.GrillData.Temp / (double) grillInfo.SessionData.SetPoint) * 100;
             var result = (int) Math.Round(percentVal);
             return Clamp(result, 0, 100);
         }
