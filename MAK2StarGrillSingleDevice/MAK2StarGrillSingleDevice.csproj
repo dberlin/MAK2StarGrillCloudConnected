@@ -60,7 +60,7 @@
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="BeforeBuild">
-        <ReplaceFileText InputFilename="MAK2StarGrillSingleDevice.json" OutputFilename="MAK2StarGrillSingleDevice.json" MatchExpression="(VersionDate&quot;.*?&quot;)(.*?)(&quot;)" ReplacementText="$1 $(CurrentDate) $3" />
+        <UpdateVersionDate InputFilename="MAK2StarGrillSingleDevice.json" OutputFilename="MAK2StarGrillSingleDevice.json" FieldName="VersionDate" />
         <IncrementVersion InputFilename="MAK2StarGrillSingleDevice.json" OutputFilename="MAK2StarGrillSingleDevice.json" FieldName="DriverVersion" />
     </Target>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
